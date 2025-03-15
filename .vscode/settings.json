@@ -1,0 +1,8 @@
+{
+    "java.project.sourcePaths": [
+        "Proyecto"
+    ],
+    "java.project.referencedLibraries": [
+        "Proyecto\\libs\\flatlaf-3.5.4.jar"
+    ]
+}
