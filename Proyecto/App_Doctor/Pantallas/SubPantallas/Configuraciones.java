@@ -54,9 +54,9 @@ public class Configuraciones extends JPanel implements ActionListener {
         label_Logo = new JLabel(new ImageIcon(enviar_escalado));
         logo_container.add(label_Logo, BorderLayout.CENTER);
 
-       // EstilosUI.aplicarEstiloPanel(contenedor_Gen);
-        //EstilosUI.aplicarEstiloPanel(panel_Lateral); Aplicar estilos actualizados
-        //EstilosUI.aplicarEstiloPanel(panel_Central);
+        EstilosUI.aplicarEstiloPanelPrincipal(contenedor_Gen);
+        EstilosUI.aplicarEstiloPanelPrincipal(panel_Lateral);
+        EstilosUI.aplicarEstiloPanelPrincipal(panel_Central);
         EstilosUI.aplicarEstiloBoton(regresar);
         EstilosUI.aplicarEstiloBoton(dat_Perfil);
 
