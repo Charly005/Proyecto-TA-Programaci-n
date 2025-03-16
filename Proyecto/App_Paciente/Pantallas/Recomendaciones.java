@@ -42,7 +42,7 @@ public class Recomendaciones extends JPanel {
         tarjeta.setMinimumSize(new Dimension(200, 200));
 
         JLabel lblTitulo = new JLabel(titulo, SwingConstants.CENTER);
-        EstilosUI.aplicarEstiloSubtitulo(lblTitulo); //ESTILO TITULO
+        EstilosUI.aplicarEstiloSubtitulo(lblTitulo); // ESTILO TITULO
         JLabel lblTexto = new JLabel(texto, SwingConstants.CENTER);
 
         tarjeta.add(lblTitulo);
@@ -104,11 +104,10 @@ public class Recomendaciones extends JPanel {
 
         // AGREGAR ESTILOS
         EstilosUI.aplicarEstiloPanelPrincipal(pnlPrincipal);
-        
 
         // agg el widget
         this.add(pnlPrincipal, "Center");
-
+        this.setOpaque(false);
     }
 
     private void agregarTarjeta(JPanel panel, JPanel tarjeta, int gridx) {

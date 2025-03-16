@@ -1,12 +1,14 @@
 package App_Paciente.Pantallas;
 
-import java.awt.Dimension;
+import java.awt.BorderLayout;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.Image;
+import java.awt.Insets;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+import javax.swing.BorderFactory;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
@@ -38,25 +40,30 @@ public class PerfilPaciente extends JPanel implements ActionListener {
     JScrollPane scroll;
 
     public PerfilPaciente() {
+        setLayout(new BorderLayout()); // Cambia el layout a BorderLayout
         init();
     }
 
     public void init() {
-
+        // Contenedor principal
         container = new JPanel();
-        container.setLayout(new GridBagLayout());
+        container.setLayout(new GridBagLayout()); // Usamos GridBagLayout para mayor flexibilidad
         GridBagConstraints gbc = new GridBagConstraints();
+        gbc.fill = GridBagConstraints.HORIZONTAL; // Asegura que los componentes se expandan horizontalmente
+        gbc.weightx = 1.0; // Asegura que los componentes ocupen todo el espacio disponible
+        gbc.insets = new Insets(10, 10, 10, 10); // Márgenes entre componentes
 
-        ImageIcon icono = new ImageIcon("App_Paciente\\img\\Foto_Perfil.jpeg");
+        // Cargar la imagen de perfil
+        ImageIcon icono = new ImageIcon("Proyecto\\App_Paciente\\img\\Foto_Perfil.jpeg");
         Image imagen = icono.getImage().getScaledInstance(150, 150, Image.SCALE_SMOOTH);
         fotoPerfil = new JLabel(new ImageIcon(imagen));
         gbc.gridx = 0;
         gbc.gridy = 0;
         gbc.gridwidth = 2;
         gbc.anchor = GridBagConstraints.CENTER;
-        gbc.insets = new java.awt.Insets(10, 10, 10, 10);
         container.add(fotoPerfil, gbc);
 
+        // Nombre
         lblNombre = new JLabel("Nombre: " + nombre);
         gbc.gridx = 0;
         gbc.gridy = 1;
@@ -103,12 +110,10 @@ public class PerfilPaciente extends JPanel implements ActionListener {
 
         // ScrollPane para el contenedor
         scroll = new JScrollPane(container);
-        scroll.setPreferredSize(new Dimension(650, 550));// 750, 550
-       // scroll.setMaximumSize(new Dimension(1000, 1000));
-        scroll.setMinimumSize(new Dimension(650, 550));
-
-        scroll.getVerticalScrollBar().setUnitIncrement(16);
-        add(scroll);
+        scroll.setPreferredSize(null);
+        scroll.setMinimumSize(null);
+        scroll.setBorder(BorderFactory.createEmptyBorder(35, 35, 35, 35));
+        add(scroll, BorderLayout.CENTER); // Asegura que el JScrollPane ocupe todo el espacio disponible
 
         // APLICAR ESTILOS
         EstilosUI.aplicarEstiloPanelPrincipal(container);
@@ -116,6 +121,5 @@ public class PerfilPaciente extends JPanel implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        // Aquí puedes agregar lógica si necesitas manejar eventos
     }
 }

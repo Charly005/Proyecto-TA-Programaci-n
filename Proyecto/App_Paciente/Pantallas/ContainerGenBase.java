@@ -194,6 +194,7 @@ public class ContainerGenBase extends JPanel implements ActionListener {
             nuevoPanel = new CalendarApp();
         }
         if (nuevoPanel != null) {
+            panel_Central.removeAll();
             nuevoPanel.setPreferredSize(panel_Central.getSize());
             panel_Central.add(nuevoPanel, BorderLayout.CENTER);
             panel_Central.revalidate();

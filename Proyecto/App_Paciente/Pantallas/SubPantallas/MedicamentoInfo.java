@@ -11,6 +11,7 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 import App_Paciente.Pantallas.Medicamentos;
+import Style.EstilosUI;
 
 public class MedicamentoInfo extends JPanel implements ActionListener {
     JButton volver;
@@ -21,12 +22,12 @@ public class MedicamentoInfo extends JPanel implements ActionListener {
     JPanel container;
     Medicamentos parent;
 
-    public MedicamentoInfo(String n, String d, String fIni, String fFin, Medicamentos parent){
+    public MedicamentoInfo(String n, String d, String fIni, String fFin, Medicamentos parent) {
         this.parent = parent;
         init(n, d, fIni, fFin);
     }
 
-    public void init(String n, String d, String fIni, String fFin){
+    public void init(String n, String d, String fIni, String fFin) {
         volver = new JButton("Volver");
         nombreMedicamento = new JLabel("Nombre: ");
         nombre = new JLabel(n);
@@ -38,7 +39,7 @@ public class MedicamentoInfo extends JPanel implements ActionListener {
         fechaFin = new JLabel(fFin);
         container = new JPanel();
 
-        container.setLayout(new GridLayout(4,2));
+        container.setLayout(new GridLayout(4, 2));
         container.add(nombreMedicamento);
         container.add(nombre);
         container.add(dosisMedicamento);
@@ -60,14 +61,20 @@ public class MedicamentoInfo extends JPanel implements ActionListener {
         gbc.gridy = 1;
         gbc.weighty = 0.9;
         this.add(container, gbc);
-        
+
         volver.addActionListener(this);
+
+        // Aplicar estilos
+        EstilosUI.aplicarEstiloPanelPrincipal(container);
+        // REVISAR TAMAÑO DEL CONTENEDOR DE MEDICAMENTOS Y VISTA INFO,
+        // AL IGUAL QUE EL TAMAÑO DEL BOTÓN VOLVER
     }
+
     @Override
     public void actionPerformed(ActionEvent e) {
-        if(e.getSource() == volver){
+        if (e.getSource() == volver) {
             parent.restablecer();
         }
     }
-    
+
 }

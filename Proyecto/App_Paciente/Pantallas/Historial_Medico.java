@@ -1,16 +1,15 @@
 package App_Paciente.Pantallas;
 
+import java.awt.BorderLayout;
 import java.awt.Color;
-import java.awt.GridBagConstraints;
-import java.awt.GridBagLayout;
 import java.awt.GridLayout;
-import java.awt.Insets;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+import javax.swing.BorderFactory;
 import javax.swing.JButton;
-import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.JScrollPane;
 
 import App_Paciente.Pantallas.SubPantallas.VisitaInfo;
 import Style.EstilosUI;
@@ -18,7 +17,8 @@ import Style.EstilosUI;
 public class Historial_Medico extends JPanel implements ActionListener {
     String[] vistDoctor = { "Fecha: 10/03/2024     Motivo: Control rutinario",
             "Fecha: 15/03/2024     Motivo: Dolor de garganta", "Fecha: 20/03/2024     Motivo: Revisión de alergias",
-            "Fecha: 25/03/2024     Motivo: Dolor en el pecho" };
+            "Fecha: 25/03/2024     Motivo: Dolor en el pecho", "Fecha: 30/03/2024     Motivo: Dolor general",
+            "Fecha: 10/04/2024     Motivo: Dolor en de rodilla" };
     String[] diagnostico = { "Presión arterial alta", "Faringitis aguda", "Alergia al polen", "Ansiedad" };
     String[] medicamentosAplicados = { "Losartán 50 mg, Amlodipino 5 mg",
             "Amoxicilina 500 mg cada 8 horas, Paracetamol 500 mg cada 6 horas", "Loratadina 10 mg una vez al día",
@@ -29,18 +29,20 @@ public class Historial_Medico extends JPanel implements ActionListener {
             "Electrocardiograma_25_03_2024.pdf, Informe_Psiquiatria_25_03_2024.pdf" };
     JPanel container;
     JPanel container_base;
+    JScrollPane scroll;
 
     public Historial_Medico() {
+        setLayout(new BorderLayout()); // Cambia el layout a BorderLayout
         init();
     }
 
     public void init() {
         container_base = new JPanel();
         container = new JPanel();
-        GridBagConstraints gbc = new GridBagConstraints();
+        // GridBagConstraints gbc = new GridBagConstraints();
 
         // Configuración del container_base
-        container_base.setLayout(new GridLayout(vistDoctor.length, 1));
+        container_base.setLayout(new GridLayout(vistDoctor.length, 1, 0, 5)); // Espacio vertical entre botones
         container_base.setOpaque(false);
 
         // Agregar botones al container_base
@@ -56,7 +58,6 @@ public class Historial_Medico extends JPanel implements ActionListener {
                 public void mouseExited(java.awt.event.MouseEvent evt) {
                     visita.setBackground(Color.white);
                 }
-
             });
             visita.setActionCommand(Integer.toString(i));
             visita.addActionListener(this);
@@ -65,20 +66,17 @@ public class Historial_Medico extends JPanel implements ActionListener {
         }
 
         // Configuración del container
-        container.setLayout(new GridLayout(1, 1));
-        container.add(container_base);
+        container.setLayout(new BorderLayout());
+container.setOpaque(false);
+        container.add(container_base, BorderLayout.CENTER); // Agrega container_base al centro del container
 
-        // Configuración del layout principal
-        this.setLayout(new GridBagLayout());
+        // ScrollPane para el contenedor
+        scroll = new JScrollPane(container);
 
-        // Configuración de GridBagConstraints para el container
-        gbc.gridx = 0;
-        gbc.gridy = 0; // Comienza en la fila 0
-        gbc.weightx = 1.0; // Ocupa todo el ancho disponible
-        gbc.weighty = 1.0; // Ocupa todo el alto disponible
-        gbc.fill = GridBagConstraints.BOTH; // Se expande en ambas direcciones
-        gbc.insets = new Insets(30, 30, 30, 30); // Ajusta los márgenes si es necesario
-        this.add(container, gbc);
+        scroll.setBorder(BorderFactory.createEmptyBorder(35, 35, 35, 35)); // Bordes internos de 35 píxeles
+        scroll.setPreferredSize(null); // Elimina el tamaño preferido
+        scroll.setMinimumSize(null); // Elimina el tamaño mínimo
+        add(scroll, BorderLayout.CENTER); // Asegura que el JScrollPane ocupe todo el espacio disponible
 
         // APLICAR ESTILOS
         EstilosUI.aplicarEstiloPanelPrincipal(container);
@@ -98,7 +96,7 @@ public class Historial_Medico extends JPanel implements ActionListener {
 
     public void reset() {
         container.removeAll();
-        container.add(container_base);
+        container.add(container_base, BorderLayout.CENTER);
         container.revalidate();
         container.repaint();
     }

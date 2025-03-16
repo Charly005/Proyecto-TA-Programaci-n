@@ -11,6 +11,7 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 import App_Paciente.Pantallas.Historial_Medico;
+import Style.EstilosUI;
 
 public class VisitaInfo extends JPanel implements ActionListener {
     JButton volver;
@@ -18,19 +19,19 @@ public class VisitaInfo extends JPanel implements ActionListener {
     JPanel container;
     Historial_Medico parent;
 
-    public VisitaInfo(String diag, String medicamentos, String documentos, Historial_Medico parent){
+    public VisitaInfo(String diag, String medicamentos, String documentos, Historial_Medico parent) {
         this.parent = parent;
         init(diag, medicamentos, documentos);
     }
 
-    public void init(String diag, String medicamentos, String documentos){
+    public void init(String diag, String medicamentos, String documentos) {
         volver = new JButton("Volver");
         diagnostico = new JLabel("Diagnostico del Paciente: " + diag);
         medicamentosAplicados = new JLabel("Medicamentos aplicados: " + medicamentos);
         documentosCitas = new JLabel("Documentos adjuntos: " + documentos);
         container = new JPanel();
 
-        container.setLayout(new GridLayout(8,1));
+        container.setLayout(new GridLayout(8, 1));
         container.add(diagnostico);
         container.add(medicamentosAplicados);
         container.add(documentosCitas);
@@ -47,14 +48,18 @@ public class VisitaInfo extends JPanel implements ActionListener {
         gbc.gridy = 1;
         gbc.weighty = 0.9;
         this.add(container, gbc);
-        
+
         volver.addActionListener(this);
+
+        //aplicar estilos
+        EstilosUI.aplicarEstiloPanelPrincipal(container);
     }
+
     @Override
     public void actionPerformed(ActionEvent e) {
-        if(e.getSource() == volver){
+        if (e.getSource() == volver) {
             parent.reset();
         }
     }
-    
+
 }

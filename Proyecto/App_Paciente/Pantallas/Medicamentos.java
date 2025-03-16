@@ -1,7 +1,6 @@
 package App_Paciente.Pantallas;
 
 import java.awt.Color;
-import java.awt.Dimension;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.GridLayout;
@@ -17,7 +16,6 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.SwingConstants;
-import javax.swing.border.EmptyBorder;
 
 import App_Paciente.Pantallas.SubPantallas.MedicamentoInfo;
 import Style.EstilosUI;
@@ -44,6 +42,7 @@ public class Medicamentos extends JPanel implements ActionListener {
         container = new JPanel();
         scroll = new JScrollPane(container);
         scroll.setOpaque(false);
+        scroll.setBorder(BorderFactory.createEmptyBorder()); // Elimina el borde del JScrollPane
         GridBagConstraints gbc = new GridBagConstraints();
 
         // Configuración del contenedor principal
@@ -106,7 +105,7 @@ public class Medicamentos extends JPanel implements ActionListener {
         gbc.weightx = 1.0;
         gbc.weighty = 1.0;
         gbc.fill = GridBagConstraints.BOTH;
-        gbc.insets = new Insets(25, 25, 25, 25);
+        gbc.insets = new Insets(35, 35, 35, 35);
         this.add(scroll, gbc);
 
         // APLICAR ESTILOS
