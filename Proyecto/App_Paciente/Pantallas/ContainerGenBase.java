@@ -64,7 +64,7 @@ public class ContainerGenBase extends JPanel implements ActionListener {
         titulo.setForeground(Color.WHITE);
         configuracion = new Boton("⚙️");
         configuracion.getPreferredSize();
-        logo = new ImageIcon("App_Paciente\\img\\image.png");
+        logo = new ImageIcon("Proyecto\\App_Paciente\\img\\logoApp.png");
         Image enviar_escalado = logo.getImage().getScaledInstance(50, 50, Image.SCALE_SMOOTH);
         logo_container = new JPanel(new BorderLayout());
         label_Logo = new JLabel(new ImageIcon(enviar_escalado));
