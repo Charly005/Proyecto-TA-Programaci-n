@@ -14,10 +14,8 @@ import javax.swing.JPanel;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 import javax.swing.SwingConstants;
-import javax.swing.UIManager;
-import javax.swing.UnsupportedLookAndFeelException;
 
-import com.formdev.flatlaf.FlatLightLaf;
+//import com.formdev.flatlaf.FlatLightLaf;
 
 import App_Paciente.Pantallas.ContainerGenBase;
 import App_Paciente.Pantallas.OlvidoContraseña;
@@ -38,18 +36,21 @@ public class InicioSesion extends JPanel implements ActionListener {
 
     public InicioSesion(Base_App_Paciente parent) {
         this.parent = parent;
-        try {
-            UIManager.setLookAndFeel(new FlatLightLaf());
-
-            // DISEÑO DEL BOTÓN ACEPTA
-            // UIManager.put("Button.background", new Color(76, 156, 207));// #rgb(76,
-            // 156,207));
-            // UIManager.put("Button.focus", new Color(0, 254, 136));// #rgb(0, 254, 136));
-            // UIManager.put("Button.foreground", Color.BLACK);
-
-        } catch (UnsupportedLookAndFeelException e) {
-            e.printStackTrace();
-        }
+        /*
+         * try {
+         * UIManager.setLookAndFeel(new FlatLightLaf());
+         * 
+         * // DISEÑO DEL BOTÓN ACEPTA
+         * // UIManager.put("Button.background", new Color(76, 156, 207));// #rgb(76,
+         * // 156,207));
+         * // UIManager.put("Button.focus", new Color(0, 254, 136));// #rgb(0, 254,
+         * 136));
+         * // UIManager.put("Button.foreground", Color.BLACK);
+         * 
+         * } catch (UnsupportedLookAndFeelException e) {
+         * e.printStackTrace();
+         * }
+         */
 
         init();
     }

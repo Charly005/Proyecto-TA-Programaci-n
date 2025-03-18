@@ -5,10 +5,8 @@ import java.awt.GridLayout;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
-import javax.swing.UIManager;
-import javax.swing.UnsupportedLookAndFeelException;
 
-import com.formdev.flatlaf.FlatLightLaf;
+//import com.formdev.flatlaf.FlatLightLaf;
 
 public class Base_App_Paciente extends JFrame {
     CardLayout cambiar = new CardLayout();
@@ -21,11 +19,11 @@ public class Base_App_Paciente extends JFrame {
         // Asegúrate de agregar la pantalla base
         contenedor.add(new InicioSesion(this), "Inicio Sesión");
         add(contenedor);
-        try {
-            UIManager.setLookAndFeel(new FlatLightLaf());
-        } catch (UnsupportedLookAndFeelException e) {
-            e.printStackTrace();
-        }
+        // try {
+        // UIManager.setLookAndFeel(new FlatLightLaf());
+        // } catch (UnsupportedLookAndFeelException e) {
+        // e.printStackTrace();
+        // }
 
         setSize(800, 800);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
