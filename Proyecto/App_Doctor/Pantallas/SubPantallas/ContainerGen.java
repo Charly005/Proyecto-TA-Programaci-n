@@ -127,7 +127,7 @@ public class ContainerGen extends JPanel implements ActionListener {
             JPanel newPant = null;
             String name = "";
             if (e.getSource() == datos_Personales) {
-                newPant = new PerfilPaciente();
+                newPant = new PerfilPaciente(parent);
                 name = "Datos Personales";
             } else if (e.getSource() == historial_medico) {
                 newPant = new Historial_Medico(parent);
