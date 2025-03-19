@@ -24,7 +24,6 @@ import javax.swing.JScrollPane;
 import javax.swing.JTextField;
 import javax.swing.SwingUtilities;
 import javax.swing.Timer;
-import javax.swing.border.LineBorder;
 
 import Style.EstilosUI;
 
@@ -100,6 +99,8 @@ public class Chat_Cliente extends JPanel implements ActionListener, KeyListener 
         EstilosUI.aplicarEstiloPanelPrincipal(container_chat);
         EstilosUI.aplicarEstiloPanelPrincipal(acciones);
         EstilosUI.aplicarEstiloCampoTexto(text);
+        EstilosUI.aplicarBotonGeneral(adjuntar);
+        EstilosUI.aplicarBotonGeneral(enviar);
 
         text.addKeyListener(this);
         text.setFocusable(true);

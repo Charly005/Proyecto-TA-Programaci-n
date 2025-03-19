@@ -108,16 +108,20 @@ public class CalendarApp extends JPanel {
         sidePanel.add(buttonPanel, BorderLayout.SOUTH);
 
         JPanel calendarPanel = new JPanel(new BorderLayout());
-        //calendarPanel.setOpaque(false);
+        // calendarPanel.setOpaque(false);
         calendarPanel.add(calendarScroll, BorderLayout.CENTER);
         calendarPanel.add(btnSolicitar, BorderLayout.SOUTH);
 
         add(calendarPanel, BorderLayout.CENTER);
         add(sidePanel, BorderLayout.EAST);
 
-        //APLICAR ESTILOS
+        // APLICAR ESTILOS
         EstilosUI.aplicarEstiloPanelPrincipal(sidePanel);
         EstilosUI.aplicarEstiloPanelPrincipal(calendarPanel);
+
+        EstilosUI.aplicarBotonGeneral(btnCancelar);
+        EstilosUI.aplicarBotonGeneral(btnReprogramar);
+        EstilosUI.aplicarBotonGeneral(btnSolicitar);
 
         llenarEjemploCitas();
         llenarCalendario();

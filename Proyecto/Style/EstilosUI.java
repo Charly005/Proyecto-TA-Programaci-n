@@ -12,23 +12,35 @@ import javax.swing.JTextArea;
 import javax.swing.JTextField;
 
 public class EstilosUI {
-    // Colores principales
+
+    // Colores Bordes textArea
     public static final Color COLOR_PRINCIPAL = new Color(42, 109, 176); // #2A6DB0
+
+    // COLORES PANELES PRIMARIOS Y SECUNDARIOS
     public static final Color COLOR_SECUNDARIO = new Color(203, 203, 203); // rgb(203, 203, 203)
     public static final Color COLOR_FONDOPANEL = new Color(255, 255, 255); // rgb(255, 255, 255)
+
+    // COLORES BTN LOGIN
     public static final Color COLOR_BOTON = new Color(76, 156, 207); // #rgb(76, 156, 207)
     public static final Color COLOR_BOTON_HOVER = new Color(0, 153, 255); // #rgb(0, 153, 255)
-    public static final Color COLOR_TEXTO = new Color(51, 51, 51); // #333
 
+    // COLORES BTN PANEL MENU
     public static final Color COLOR_BTN_RESALTAR = new Color(33, 143, 216);// #rgb(33, 143, 216)
     public static final Color COLOR_BTN_MENU = new Color(7, 71, 161);// rgb(7, 71, 161)
 
-    // Fuente general
+    // COLORES BTN GENERAL
+    public static final Color BTN_SECUNDARIO = new Color(177, 194, 249); // rgb(177, 194, 249) // rgb(211, 211, 211)
+    public static final Color BTN_PRIMARIO = new Color(197, 227, 246); // rgb(197, 227, 246) // rgb(255,255,255)
+
+    // FUENTE GENERAL
     public static final Font FUENTE_TITULO = new Font("Arial", Font.BOLD, 20);
     public static final Font FUENTE_SUBTITULO = new Font("Arial", Font.BOLD, 16);
     public static final Font FUENTE_TEXTO = new Font("Arial", Font.PLAIN, 14);
+    // COLOR DE TEXTO
+    public static final Color COLOR_TEXTO = new Color(51, 51, 51); // #333
 
     // Método para aplicar estilos a botones
+    // (INICO DE SESIÓN)
     public static void aplicarEstiloBoton(JButton boton) {
         boton.setFont(FUENTE_TEXTO);
         boton.setBackground(COLOR_BOTON);
@@ -48,7 +60,28 @@ public class EstilosUI {
         });
     }
 
-    // Botón menú
+    // BOTONES GENERALES
+    public static void aplicarBotonGeneral(JButton boton) {
+        boton.setFont(FUENTE_TEXTO);
+        boton.setBackground(BTN_PRIMARIO);
+        boton.setForeground(Color.BLACK);
+        boton.setFocusPainted(false);
+        boton.setBorder(BorderFactory.createLineBorder(Color.BLACK, 2));
+        boton.setBorder(BorderFactory.createLineBorder(BTN_PRIMARIO));
+        boton.setCursor(new Cursor(Cursor.HAND_CURSOR));
+
+        boton.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                boton.setBackground(BTN_SECUNDARIO);
+            }
+
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                boton.setBackground(BTN_PRIMARIO);
+            }
+        });
+    }
+
+    // BOTNOES PANEL MENÚ
     public static void aplicarEstiloBotonMenu(JButton boton) {
         boton.setFont(FUENTE_TEXTO);
         boton.setBackground(COLOR_BTN_MENU);

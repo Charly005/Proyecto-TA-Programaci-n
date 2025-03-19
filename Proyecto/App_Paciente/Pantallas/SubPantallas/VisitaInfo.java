@@ -49,6 +49,7 @@ public class VisitaInfo extends JPanel implements ActionListener {
         gbc.weighty = 0.9;
         this.add(container, gbc);
 
+        EstilosUI.aplicarBotonGeneral(volver);
         volver.addActionListener(this);
 
         //aplicar estilos

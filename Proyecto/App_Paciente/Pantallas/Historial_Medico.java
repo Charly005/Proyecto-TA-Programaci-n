@@ -48,6 +48,7 @@ public class Historial_Medico extends JPanel implements ActionListener {
         // Agregar botones al container_base
         for (int i = 0; i < vistDoctor.length; i++) {
             JButton visita = new JButton(vistDoctor[i]);
+            visita.setBackground(Color.WHITE);
 
             container_base.add(visita);
             visita.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -67,7 +68,7 @@ public class Historial_Medico extends JPanel implements ActionListener {
 
         // Configuración del container
         container.setLayout(new BorderLayout());
-container.setOpaque(false);
+        container.setOpaque(false);
         container.add(container_base, BorderLayout.CENTER); // Agrega container_base al centro del container
 
         // ScrollPane para el contenedor
