@@ -1,10 +1,10 @@
 package App_Doctor;
-import javax.swing.JFrame;
-import javax.swing.JPanel;
-
 
 import java.awt.CardLayout;
 import java.awt.GridLayout;
+
+import javax.swing.JFrame;
+import javax.swing.JPanel;
 
 public class Base_App_Doctor extends JFrame {
     CardLayout cambiar = new CardLayout();
@@ -23,9 +23,9 @@ public class Base_App_Doctor extends JFrame {
         setVisible(true);
     }
 
-    public static void main(String[] args) {
-        new Base_App_Doctor();
-    }
+    // public static void main(String[] args) {
+    // new Base_App_Doctor();
+    // }
 
     public void cambPantalla(JPanel newPant, String name) {
         contenedor.removeAll();

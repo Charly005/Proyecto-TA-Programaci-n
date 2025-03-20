@@ -32,9 +32,9 @@ public class Base_App_Paciente extends JFrame {
 
     }
 
-    public static void main(String[] args) {
-        new Base_App_Paciente();
-    }
+    //public static void main(String[] args) {
+      //  new Base_App_Paciente();
+    //}
 
     public void cambPantalla(JPanel newPant, String name) {
         contenedor.removeAll();
